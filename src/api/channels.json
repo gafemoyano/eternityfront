@@ -1,0 +1,113 @@
+[{
+    detail: "TBN HD",
+    href: "http://www.eternityready.com/embed.php?vid=f2d690b0b",
+    img: "http://eternityready.com/images/slider/field.jpg",
+    title: "TBN - HD",
+    info: "Trinity Broadcasting Network is the # 1 Largest Christian TV Network around. Watch David Jeremiah, Kenneth Copeland and much more. Grow in your Faith and Walk.",
+    year: "",
+    rate: "4.5",
+    age: "18+",
+    star: 4
+}, {
+    detail: "Smile of a Child",
+    href: "http://www.eternityready.com/embed.php?vid=c65891bf2",
+    img: "http://eternityready.com/images/slider/smileofachild.jpg",
+    title: "Smile of a Child",
+    info: "TBN Network for Children. Featuring programming from the 90's such as Gospel Bill, Becky's Barn, Super Book and Flying House!",
+    year: "",
+    rate: "4.5",
+    age: "5+",
+    star: 5
+}, {
+    detail: "Daystar",
+    href: "http://www.eternityready.com/embed.php?vid=953ed276d",
+    img: "http://www.eternityready.com/images/channels/Daystar.jpg",
+    title: "Daystar",
+    info: "Day Star Blend of interdenominational and multi-cultural programming, Daystar is produces and provides quality television that will reach our viewers, refresh their lives and renew their hearts.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "CBN",
+    href: "http://www.eternityready.com/embed.php?vid=fa19aae5f",
+    img: "http://www.eternityready.com/images/channels/channel7.png",
+    title: "CBN",
+    info: "CBN Christian Broadcasting Network, home to Pat Robertson host of the 700 Club and Renounded Religious News Programming. One of the oldest Faith Based Networks. You will be sure to know what is going on with World News as it related to the End Times.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "Newsmax",
+    href: "http://www.eternityready.com/embed.php?vid=992bd67dc",
+    img: "http://eternityready.com/images/channels/newsmax.jpeg",
+    title: "Newsmax",
+    info: "Newsmax TV is a United States Independent news channel. One of the most influential sources of conservative news and commentary in the United States, Newsmax has built its reputation on a foundation of insightful opinion, sharp news coverage, and an unashamedly conservative voice.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "The Church Channel",
+    href: "http://www.eternityready.com/embed.php?vid=2fc78bd87",
+    img: "http://eternityready.com/images/slider/churchchannel.jpg",
+    title: "The Church Channel",
+    info: "A TBN Network, The Church Channel is the only network broadcasting the very best in church services and ministry programs from across the nation, 24 hours a day, seven days a week. The very best of what is being produced in church programming today.",
+    //, along with traditional time-buys from popular pastors which meet similar views as the Hillsong Church",
+
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "Hope Channel",
+    href: "http://www.eternityready.com/embed.php?vid=b97a5b87b",
+    img: "http://www.eternityready.com/images/slider/hopechannel.jpg",
+    title: "Hope Channel",
+    info: "The official television network of the Seventh-day Adventist Church, Hope Channel offers programs on wholistic Christian living and focuses of faith, health, relationships, and community. ItÃ¢â‚¬â„¢s television that will change your life!",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "ESPN 3",
+    href: "http://www.eternityready.com/embed.php?vid=c4b2acff8",
+    img: "http://www.eternityready.com/images/slider/espn3.png",
+    title: "ESPN 3",
+    info: "ESPN3 features live online sports viewing from a broad array of global events including: FIFA World Cup global qualifiers, X Games, North American Soccer League, DFB-Pokal and the Major Arena Soccer League.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "Juce TV",
+    href: "http://www.eternityready.com/embed.php?vid=e5691528b",
+    img: "http://www.eternityready.com/images/channels/JuCeTV.png",
+    title: "Juce TV",
+    info: "JUCE TV combines music videos, video jockeys, promotion of special Christian rock events, news and documentaries about Christian bands and performers. The network also broadcasts some extreme sports programs that document athletes and how their faith impacts their lives.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "Revelation TV",
+    href: "http://www.eternityready.com/embed.php?vid=a40fb9ca7",
+    img: "http://www.eternityready.com/images/slider/revelationtv.jpg",
+    title: "Revelation TV",
+    info: "Revelation TV is a multi-award winning Christian television channel. It includes programmes such as Christian World News, Stand Up for Jesus and Adventists in Conversation.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}, {
+    detail: "AFTV",
+    href: "http://www.eternityready.com/embed.php?vid=7713cb853",
+    img: "http://eternityready.com/images/channels/channel4.png",
+    title: "AFTV",
+    info: "Amazing Facts now broadcasts multiple television programs and a live call-in radio program, Bible Answers Live, on hundreds of media outlets around the world resulting in thousands upon thousands of baptisms and new lives in Christ.",
+    year: "",
+    rate: "4.5",
+    age: "7+",
+    star: 4
+}];
