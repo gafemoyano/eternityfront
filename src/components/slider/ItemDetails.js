@@ -17,10 +17,7 @@ var ItemDetails = React.createClass({
   },
 
   checkScroll() {
-    if(document.body.scrollTop < document.body.scrollTop + this.refs.details.getBoundingClientRect().top - this.props.sliderHeight) {
-      document.body.scrollTop= document.body.scrollTop + 10;
-      setTimeout(this.checkScroll, 10)
-    }
+
   },
 
   render: function() {
@@ -42,7 +39,7 @@ var ItemDetails = React.createClass({
         <div className={className} ref="detailsContent">
           <div className='slider-details-left'>
             <h2>{this.props.activeSlide ? this.props.activeSlide.detail : ''}</h2>
-            <span className="stars">{this.props.activeSlide ? Array(this.props.activeSlide.star || 0).join('â˜…')  : ''}</span>
+            <span className="stars">{this.props.activeSlide ? Array(this.props.activeSlide.star || 0).join('★')  : ''}</span>
             {
               this.props.activeSlide ?
                 this.props.activeSlide.age ?
@@ -57,7 +54,7 @@ var ItemDetails = React.createClass({
           </div>
           <div className='slider-details-right'>
             {this.props.activeSlide ?  <img src={this.props.activeSlide.img} className='slider-details-image' role='presentation' /> : ''}
-            <div className="slider-item-details-close" onClick={this.props.closeDetails}>Ã—</div>
+            <div className="slider-item-details-close" onClick={this.props.closeDetails}>X</div>
             <div className="gradient"></div>
             <a href={this.props.activeSlide ? this.props.activeSlide.href : ''}><span className="play"></span></a>
           </div>

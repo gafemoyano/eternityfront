@@ -1,18 +1,29 @@
 import React, { Component } from 'react'
-import SliderX from '../components/SliderX'
+import Slider from '../components/slider/Slider'
+import { connect } from 'react-redux'
+import { fetchChannels } from '../actions'
 
 class HomePage extends Component {
 
+  componentDidMount() {
+    this.props.fetchChannels()
+  }
+
   render() {
-
     return (
-      <div>
-
-        <hr />
-
+      <div className="main">
+        <Slider items={this.props.items} sliderTitle='Popular Channels'/>
       </div>
     )
   }
 }
-export default HomePage
+const mapStateToProps = (state, ownProps) => {
+  return {
+    items: state.channels.items,
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchChannels,
+})(HomePage)
 

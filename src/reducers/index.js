@@ -12,7 +12,7 @@ function channels(state = {
   }
 }
 
-function byId(state = {}, action) {
+function byId(state = {items: []}, action) {
   switch (action.type) {
     case REQUEST_CHANNELS:
       return {
@@ -23,14 +23,14 @@ function byId(state = {}, action) {
       return {
         ...state,
         isFetching: false,
-        items: action.posts,
+        items: action.channels.slice(0, 10),
       }
     default:
-      const { uniqueId } = action
-      if (uniqueId) {
+      const { _id } = action
+      if (_id) {
         return {
           ...state,
-          [uniqueId]: channels(state[uniqueId], action)
+          [_id]: channels(state[_id], action)
         }
       }
       return state

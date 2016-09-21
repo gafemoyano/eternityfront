@@ -46,11 +46,6 @@ var Slider = React.createClass({
 
     var items = this.clone(this.props.items).concat(this.clone(this.props.items));
 
-
-    items.map(function(item, index) {
-      item.id =  index;
-    });
-
     this.setState({
       items: items,
       isTouch: this.isTouchDevice()
@@ -69,6 +64,11 @@ var Slider = React.createClass({
     }, 0)
   },
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      items: nextProps.items
+    });
+  },
 
   isTouchDevice() {
     return (('ontouchstart' in window)
@@ -208,7 +208,9 @@ var Slider = React.createClass({
     var self = this;
 
     var items = this.state.items.map(function(elem, index) {
-      return <Tile item={elem}
+      return <Item
+                   key={`item_${index - self.state.indexModifier}`}
+                   item={elem}
                    setSliderHeight={self.setSliderHeight}
                    sliderWidth={self.state.sliderWidth}
                    setActiveSlide={self.setActiveSlide}
@@ -216,7 +218,6 @@ var Slider = React.createClass({
                    selectedSlide={self.state.selectedSlide}
                    setDetailsSlide={self.setDetailsSlide}
                    activeSlide={self.state.activeSlide}
-                   key={elem.id}
                    index={index - self.state.indexModifier}
                    setVisibleItems={self.setVisibleItems}
                    moving={self.state.goingNext || self.state.goingPrev}
@@ -264,11 +265,7 @@ var Slider = React.createClass({
                onMouseLeave={this.removeSliderHover}
           >
             <div className='carousel-track' ref="track" style={trackStyle}>
-              <div className="row">
-                <div className="row__inner">
                   {items}
-                </div>
-              </div>
             </div>
 
             {
@@ -281,9 +278,11 @@ var Slider = React.createClass({
         </div>
         {
           this.state.detailsSlide?
-            <SliderItemDetails sliderHeight={this.state.sliderHeight}
-                               activeSlide={this.state.detailsSlide}
-                               closeDetails={this.closeDetails}
+            <SliderItemDetails
+              key={`item_details_${this.props.index}`}
+              sliderHeight={this.state.sliderHeight}
+              activeSlide={this.state.detailsSlide}
+              closeDetails={this.closeDetails}
             /> : ''
         }
       </div>

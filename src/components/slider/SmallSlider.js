@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import Tile from './Tile'
 const styles = {
   container: {
     margin: '0 auto',
@@ -42,7 +41,7 @@ class SmallSlider extends Component {
               <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
             </div>
           </div>
-<div >
+        <div >
             <div className="tile__media">
               <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
             </div>

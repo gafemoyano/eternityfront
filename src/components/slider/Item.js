@@ -1,6 +1,6 @@
 import React from 'react'
 
-const slideHoverScale = 170
+const slideHoverScale = 190
 const delayItemHover = 0
 
 const Item = React.createClass({
@@ -118,7 +118,7 @@ const Item = React.createClass({
     }
 
     var itemWrapperStyle = {
-      'backgroundImage': 'url(' + this.props.item.img + ')',
+      'backgroundImage': 'url(' + this.props.item.thumb + ')',
     };
 
     return (
@@ -138,13 +138,13 @@ const Item = React.createClass({
               this.props.item.age ? <span className="age">{this.props.item.age}</span> : ''
             }
             <span className="year">{ this.props.item.year}</span>
-                                <span className="info">
-                                        {this.props.item.info}
-                                </span>
+              <span className="info">
+                {this.props.item.description}
+              </span>
           </div>
-                            <span className="details-arrow" onClick={function() {self.props.setDetailsSlide(self.props.item, self.props.index)}}>
-                                <span className="arrow"></span>
-                            </span>
+          <span className="details-arrow" onClick={function() {self.props.setDetailsSlide(self.props.item, self.props.index)}}>
+              <span className="arrow"></span>
+          </span>
         </div>
       </div>
     );

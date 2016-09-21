@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { REQUEST_CHANNELS, RECEIVE_CHANNELS } from '../actions/channels'
+import { REQUEST_CHANNELS, RECEIVE_CHANNELS } from '../actions'
 
 function channels(state = {
   isFetching: false,
@@ -22,17 +22,17 @@ function channels(state = {
   }
 }
 
-function visibleIds(state = [], action) {
+function byId(state = [], action) {
   switch (action.type) {
     case RECEIVE_CHANNELS:
-      return action.channels.map(channel => channel.id)
+      return action.channels.map(channel => channel._id)
     default:
       return state
   }
 }
 
 export default combineReducers({
-  visibleIds
+  byId
 })
 
 export function getProduct(state, id) {
@@ -40,5 +40,5 @@ export function getProduct(state, id) {
 }
 
 export function getVisibleChannels(state) {
-  return state.visibleIds.map(id => getProduct(state, id))
+  return state.byId.map(id => getProduct(state, id))
 }
