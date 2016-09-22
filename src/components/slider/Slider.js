@@ -1,7 +1,6 @@
 import React from 'react'
 import Item from './Item'
 import SliderItemDetails from './ItemDetails'
-import Tile from './Tile'
 const nextPrevSpeed = 0.8
 
 var Slider = React.createClass({
@@ -25,10 +24,11 @@ var Slider = React.createClass({
     if (obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
       return obj;
 
+    var temp
     if (obj instanceof Date)
-      var temp = new obj.constructor(); //or new Date(obj);
+      temp = new obj.constructor(); //or new Date(obj);
     else
-      var temp = obj.constructor();
+      temp = obj.constructor();
 
     for (var key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {

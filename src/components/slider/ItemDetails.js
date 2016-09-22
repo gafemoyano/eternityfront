@@ -38,7 +38,7 @@ var ItemDetails = React.createClass({
       <div className='slider-item-details-container' ref="details" style={detailsStyle}>
         <div className={className} ref="detailsContent">
           <div className='slider-details-left'>
-            <h2>{this.props.activeSlide ? this.props.activeSlide.detail : ''}</h2>
+            <h2>{this.props.activeSlide ? this.props.activeSlide.title : ''}</h2>
             <span className="stars">{this.props.activeSlide ? Array(this.props.activeSlide.star || 0).join('★')  : ''}</span>
             {
               this.props.activeSlide ?
@@ -50,10 +50,10 @@ var ItemDetails = React.createClass({
             }
 
             <span className="year">{ this.props.activeSlide ? this.props.activeSlide.year : '' }</span>
-            <span className="slider-details-info">{this.props.activeSlide ? this.props.activeSlide.info : ''}</span>
+            <span className="slider-details-info">{this.props.activeSlide ? this.props.activeSlide.description : ''}</span>
           </div>
           <div className='slider-details-right'>
-            {this.props.activeSlide ?  <img src={this.props.activeSlide.img} className='slider-details-image' role='presentation' /> : ''}
+            {this.props.activeSlide ?  <img src={this.props.activeSlide.thumb} className='slider-details-image' role='presentation' /> : ''}
             <div className="slider-item-details-close" onClick={this.props.closeDetails}>X</div>
             <div className="gradient"></div>
             <a href={this.props.activeSlide ? this.props.activeSlide.href : ''}><span className="play"></span></a>
