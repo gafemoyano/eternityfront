@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
-import Slider from '../components/slider/Slider'
+import Slider from '../components/Slider/'
 import { connect } from 'react-redux'
 import { fetchChannels } from '../actions'
-import { getVisibleChannels } from '../reducers/channels'
-import { readyChannels, topChannels } from '../reducers/staticChannels'
+import { readyChannels, topChannels } from '../data/staticChannels'
+
 class HomePage extends Component {
 
   static propTypes = {
@@ -19,7 +19,7 @@ class HomePage extends Component {
   }
 
   render() {
-    const { items, byCategory } = this.props
+    const { byCategory } = this.props
 
     const sliders = Object.keys(byCategory).map((value, index) =>{
         return <Slider key={index} items={byCategory[value]} sliderTitle={value}/>
@@ -27,8 +27,8 @@ class HomePage extends Component {
 
     return (
       <div className="main">
-        <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
         <Slider items={topChannels} sliderTitle="Top Channels"/>
+        <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
         { sliders}
       </div>
     )
@@ -37,7 +37,6 @@ class HomePage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    items: getVisibleChannels(state.channels),
     byCategory: state.channels.byCategory,
   }
 }

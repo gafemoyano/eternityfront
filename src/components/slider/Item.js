@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Card from './Card'
 const slideHoverScale = 190
 const delayItemHover = 0
 
@@ -10,6 +10,12 @@ const Item = React.createClass({
       hoverTimer: null,
       activeItem: null
     }
+  },
+
+  isActiveItem(){
+    if(this.props.index === this.props.activeSlide)
+      return true
+    return false
   },
 
   itemHovered() {
@@ -118,7 +124,7 @@ const Item = React.createClass({
     }
 
     var itemWrapperStyle = {
-      'backgroundImage': 'url(' + this.props.item.thumb + ')',
+      'backgroundImage': `url(${this.props.item.thumb})`,
     };
 
     return (
@@ -129,21 +135,25 @@ const Item = React.createClass({
            onClick={self.openUrl}
       >
         <div className='item-wrapper' style={itemWrapperStyle}>
-          <span className="item-overlay"></span>
-          <a href={this.props.item.href} ref='play'><span className="play"></span></a>
-          <div className="infoteaser">
-            <span className="title">{this.props.item.title}</span>
-            <span className="stars">{ Array(this.props.item.star || 0).join('★') }</span>
-            {
-              this.props.item.age ? <span className="age">{this.props.item.age}</span> : ''
+
+          {this.isActiveItem() &&
+            <div className="carousel-item-ring"></div>
+          }
+          <span>
+            {this.isActiveItem() &&
+              <Card
+                href={this.props.item.href}
+                title={this.props.item.title}
+                age={this.props.item.age}
+                year={this.props.item.year}
+                description={this.props.item.description}
+                star={this.props.item.star}
+                thumb={this.props.item.thumb}
+              />
             }
-            <span className="year">{ this.props.item.year}</span>
-              <span className="info">
-                {this.props.item.description}
-              </span>
-          </div>
+          </span>
           <span className="details-arrow" onClick={function() {self.props.setDetailsSlide(self.props.item, self.props.index)}}>
-              <span className="arrow"></span>
+              <b className="arrow"></b>
           </span>
         </div>
       </div>

@@ -112,15 +112,15 @@
 
 @font-face {
   font-family: 'ArrrowsBoldRegular';
-  src: url("./fonts/arrrows-bold-webfont.eot");
-  src: url("./fonts/arrrows-bold-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/arrrows-bold-webfont.woff") format("woff"), url("./fonts/arrrows-bold-webfont.ttf") format("truetype");
+  src: url("../../fonts/arrrows-bold-webfont.eot");
+  src: url("../../fonts/arrrows-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/arrrows-bold-webfont.woff") format("woff"), url("../../fonts/arrrows-bold-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ArrrowsRegular';
-  src: url("./fonts/arrrows-regular-webfont.eot");
-  src: url("./fonts/arrrows-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/arrrows-regular-webfont.woff") format("woff"), url("./fonts/arrrows-regular-webfont.ttf") format("truetype");
+  src: url("../../fonts/arrrows-regular-webfont.eot");
+  src: url("../../fonts/arrrows-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/arrrows-regular-webfont.woff") format("woff"), url("../../fonts/arrrows-regular-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -174,7 +174,7 @@
 }
 
 .item-wrapper {
-  width: 99%;
+  width: 100%;
   height: 100%;
   position: relative;
   background-repeat: no-repeat;
@@ -203,12 +203,10 @@
           transform: translateX(-50%);
 }
 
-.carousel-item.active:hover {
-  border: 1px solid #ffffff;
-}
 
-.carousel-item.active .item-wrapper {
-  border: 1px solid #ffffff;
+
+.carousel-item.active {
+  border: 3px solid #fff;
 }
 
 .carousel-item-hover {
@@ -409,7 +407,6 @@
 .item-overlay {
   width: 100%;
   height: 100%;
-  background: black;
   position: absolute;
   z-index: 1;
   opacity: 0;
@@ -432,7 +429,7 @@
 
 .title {
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   /*text-shadow: 1px 1px 1px rgb(21, 15, 15);*/
   float: left;
@@ -441,7 +438,7 @@
 }
 
 .info {
-  font-size: 10px;
+  font-size: 8px;
   line-height: 11px;
   height: 21px;
   color: white;

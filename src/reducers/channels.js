@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { REQUEST_CHANNELS, RECEIVE_CHANNELS } from '../actions'
+import { REQUEST_CHANNELS, RECEIVE_CHANNELS, SEARCH_CHANNELS } from '../actions'
 import striptags  from 'striptags'
 
-function channels(state = {}, action) {
+function channel(state = {}, action) {
   switch (action.type) {
     case RECEIVE_CHANNELS:
       return {
@@ -25,7 +25,7 @@ function byId(state = {}, action) {
       return {
         ...state,
         ...action.channels.reduce((obj, channel) => {
-          obj[channel._id] = channels(channel, action)
+          obj[channel._id] = channel(channel, action)
           return obj
         }, {})
       }
@@ -34,7 +34,7 @@ function byId(state = {}, action) {
       if (_id) {
         return {
           ...state,
-          [_id]: channels(state[_id], action)
+          [_id]: channel(state[_id], action)
         }
       }
       return state
@@ -48,9 +48,9 @@ function byCategory(state = {}, action) {
       action.channels.forEach((channel, index, array) =>{
         channel.categoryNames.forEach((name) =>{
           if(categories[name]) {
-            categories[name].push(channels(channel, action))
+            categories[name].push(channel(channel, action))
           } else {
-            categories[name] = [channels(channel, action)]
+            categories[name] = [channel(channel, action)]
           }
         })
       })
@@ -60,10 +60,12 @@ function byCategory(state = {}, action) {
   }
 }
 
-const visibleIds = (state = [], action) => {
+const visibleChannels = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_CHANNELS:
-      return action.channels.map(channel => channel._id)
+      return action.channels.map(channel => channel)
+    case SEARCH_CHANNELS:
+      return action.channels.filter(channel => {return  channel.title.includes(action.search)})
     default:
       return state
   }
@@ -71,7 +73,7 @@ const visibleIds = (state = [], action) => {
 
 export default combineReducers({
   byId,
-  visibleIds,
+  visibleChannels,
   byCategory
 })
 

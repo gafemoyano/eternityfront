@@ -1,6 +1,8 @@
 import React from 'react'
 import Item from './Item'
-import SliderItemDetails from './ItemDetails'
+import ItemDetails from './ItemDetails'
+import './Slider.css'
+
 const nextPrevSpeed = 0.8
 
 var Slider = React.createClass({
@@ -56,7 +58,7 @@ var Slider = React.createClass({
     setTimeout(function() {
       self.reInit();
 
-      var track = self.refs.track;
+      // var track = self.refs.track;
       //     track.addEventListener('touchstart', self.onMouseDown);
       //     track.addEventListener('touchend', self.onMouseUp);
       //     track.addEventListener('touchmove', self.onMouseMove);
@@ -168,9 +170,8 @@ var Slider = React.createClass({
     }
 
     var self = this;
-    var items = self.state.items;
+    let items = self.state.items;
     for(var i=0; i < self.state.visibleItems; i++) {
-      var items = this.state.items;
       var last = items[items.length - 1];
       items.pop(last);
       items.unshift(last);
@@ -278,7 +279,7 @@ var Slider = React.createClass({
         </div>
         {
           this.state.detailsSlide?
-            <SliderItemDetails
+            <ItemDetails
               key={`item_details_${this.props.index}`}
               sliderHeight={this.state.sliderHeight}
               activeSlide={this.state.detailsSlide}

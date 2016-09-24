@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar'
 import HomePage from './HomePage'
+import Player from './Player'
 import { Match, Miss, Redirect } from 'react-router'
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
           <NavBar />
           <Match exactly pattern="/" component={HomePage}/>
           <Match pattern="/browse" component={HomePage}/>
+          <Match pattern="/player" component={Player}/>
           <Miss component={() => <Redirect to="/browse"/>} />
         </div>
     );
