@@ -22,6 +22,7 @@ class HomePage extends Component {
 
     return (
       <div className="main">
+        <NavBar />
         <Slider items={topChannels} sliderTitle="Top Channels"/>
         <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
         { sliders}

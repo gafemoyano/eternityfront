@@ -28,14 +28,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-
-          {this.state.queryString && <Redirect to={`/search/${this.state.queryString}`}/> }
-
-          <Match exactly pattern="/" component={HomePage}/>
-          <Match pattern="/browse" component={HomePage}/>
-          <Match pattern="/player/:id" component={Player}/>
-          <Match pattern="/search/:query" component={SearchResults}/>
-          <Miss component={() => <Redirect to="/browse"/>} />
+          {this.props.children}
         </div>
     );
   }

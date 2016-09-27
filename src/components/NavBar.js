@@ -1,4 +1,5 @@
 import React from 'react'
+import Search from './Search'
 import {
   Navbar,
   Nav,
@@ -38,7 +39,7 @@ const NavBar = () => (
       </Nav>
       <Navbar.Form pullRight>
         <FormGroup>
-          <FormControl type="text" placeholder="Search" />
+          <FormControl type="text" placeholder="Search" componentClass={Search} />
         </FormGroup>
         {' '}
       </Navbar.Form>

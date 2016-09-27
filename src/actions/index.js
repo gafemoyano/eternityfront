@@ -16,6 +16,12 @@ export const searchChannels = (search) => ({
   search,
 })
 
+export const SET_LOCATION = 'SET_LOCATION'
+export const setLocation = (location) => ({
+  type: SET_LOCATION,
+  location,
+})
+
 
 export const fetchChannels = () => (dispatch, getState) => {
   if(getState().channels.visibleChannels <= 0) {
