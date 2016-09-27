@@ -1,21 +1,16 @@
 import React, { Component, PropTypes } from 'react'
+import NavBar from '../components/NavBar'
 import Slider from '../components/Slider/'
 import { connect } from 'react-redux'
-import { fetchChannels } from '../actions'
 import { readyChannels, topChannels } from '../data/staticChannels'
 
 class HomePage extends Component {
 
   static propTypes = {
-    items: PropTypes.array.isRequired,
     byCategory: PropTypes.object.isRequired,
   }
   static defaultProps = {
-    items: [],
     byCategory: {},
-  }
-  componentDidMount() {
-    this.props.fetchChannels()
   }
 
   render() {
@@ -41,7 +36,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, {
-  fetchChannels,
-})(HomePage)
+export default connect(mapStateToProps)(HomePage)
 

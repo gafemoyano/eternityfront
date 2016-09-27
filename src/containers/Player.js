@@ -1,21 +1,32 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchChannels } from '../actions'
 import { getChannel } from '../reducers/channels'
+import { Link } from 'react-router'
 
 class Player extends Component {
-
+  state = {
+    channel: {}
+  }
   static propTypes = {
+    channel: PropTypes.object.isRequired,
   }
   static defaultProps = {
+    channel: {},
   }
 
-  createMarkup() { return {__html: this.props.html} }
+  createMarkup() { return {__html: this.props.channel.embedCode} }
 
   render() {
     return (
       <div className="main">
-        <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+        <div className="row">
+          <div style={{margin: '0 50px'}}>
+            <Link to="/browse"><img src="http://www.eternityready.com:3000/img/back.gif" alt="Back Button" /></Link>
+          </div>
+        </div>
+        <div className="row">
+          <div className="playerContainer" dangerouslySetInnerHTML={this.createMarkup()} />
+        </div>
       </div>
     )
   }
@@ -23,11 +34,8 @@ class Player extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    html: getChannel(ownProps.params.id).html,
+    channel: getChannel(state, ownProps.params.id)
   }
 }
 
-export default connect(mapStateToProps, {
-  fetchChannels,
-})(Player)
-
+export default connect(mapStateToProps)(Player)

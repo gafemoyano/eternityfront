@@ -24,8 +24,8 @@ function byId(state = {}, action) {
     case RECEIVE_CHANNELS:
       return {
         ...state,
-        ...action.channels.reduce((obj, channel) => {
-          obj[channel._id] = channel(channel, action)
+        ...action.channels.reduce((obj, c) => {
+          obj[c._id] = channel(c, action)
           return obj
         }, {})
       }
@@ -45,12 +45,12 @@ function byCategory(state = {}, action) {
   switch (action.type) {
     case RECEIVE_CHANNELS:
       let categories = {}
-      action.channels.forEach((channel, index, array) =>{
-        channel.categoryNames.forEach((name) =>{
+      action.channels.forEach((item, index, array) =>{
+        item.categoryNames.forEach((name) =>{
           if(categories[name]) {
-            categories[name].push(channel(channel, action))
+            categories[name].push(channel(item, action))
           } else {
-            categories[name] = [channel(channel, action)]
+            categories[name] = [channel(item, action)]
           }
         })
       })
@@ -63,7 +63,7 @@ function byCategory(state = {}, action) {
 const visibleChannels = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_CHANNELS:
-      return action.channels.map(channel => channel)
+      return action.channels.map(channel => channel._id)
     case SEARCH_CHANNELS:
       return action.channels.filter(channel => {return  channel.title.includes(action.search)})
     default:
@@ -78,7 +78,14 @@ export default combineReducers({
 })
 
 export const getChannel = (state, id) =>
-  state.byId[id]
+  state.channels.byId[id]
 
-export const getVisibleChannels = state =>
-  state.visibleIds.map(id => getChannel(state, id))
+export const getVisibleChannels = (state, query) => {
+  const visibleIds = state.channels.visibleChannels.filter(id => {
+    const channel = getChannel(state, id)
+    if(channel.title.includes(query) || channel.description.includes(query))
+      return true
+    return false
+  })
+  return visibleIds.map(id => getChannel(state, id))
+}

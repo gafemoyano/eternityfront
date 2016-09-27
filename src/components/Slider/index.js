@@ -1,7 +1,6 @@
 import React from 'react'
 import Item from './Item'
 import ItemDetails from './ItemDetails'
-import './Slider.css'
 
 const nextPrevSpeed = 0.8
 
@@ -67,8 +66,9 @@ var Slider = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
+    var items = this.clone(nextProps.items).concat(this.clone(nextProps.items));
     this.setState({
-      items: nextProps.items
+      items: items
     });
   },
 
@@ -266,7 +266,7 @@ var Slider = React.createClass({
                onMouseLeave={this.removeSliderHover}
           >
             <div className='carousel-track' ref="track" style={trackStyle}>
-                  {items}
+              {items}
             </div>
 
             {

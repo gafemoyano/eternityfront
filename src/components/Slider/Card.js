@@ -36,19 +36,19 @@ const styles={
   },
 }
 const Card = (props) =>{
-  const {title, age, year, description, star} = props
+  const {title, age, year, description, star, id, href} = props
   styles.container.backgroundImage = `url(${props.thumb})`
   return (
     <div style={styles.container}>
       <div style={styles.overlay}>
-      <Link to={{
-        pathname: '/courses',
-        query: { sort: 'name' },
-        state: { fromDashboard: true }
-      }}>
-            <div className="play"></div>
-      </Link>
-
+      {
+        id ? <Link to={`/player/${id}`}>
+                  <div className="play"></div>
+            </Link> :
+            <a href={href}>
+              <div className="play"></div>
+            </a>
+      }
         </div>
         <div className="infoteaser">
           <span className="title">{title}</span>

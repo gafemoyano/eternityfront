@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router'
 var ItemDetails = React.createClass({
 
   componentDidMount() {
@@ -34,7 +34,7 @@ var ItemDetails = React.createClass({
       'transform': 'translateY(-' + test + 'px)'
     };
 
-    return (
+    return (            
       <div className='slider-item-details-container' ref="details" style={detailsStyle}>
         <div className={className} ref="detailsContent">
           <div className='slider-details-left'>
@@ -56,7 +56,16 @@ var ItemDetails = React.createClass({
             {this.props.activeSlide ?  <img src={this.props.activeSlide.thumb} className='slider-details-image' role='presentation' /> : ''}
             <div className="slider-item-details-close" onClick={this.props.closeDetails}>X</div>
             <div className="gradient"></div>
-            <a href={this.props.activeSlide ? this.props.activeSlide.href : ''}><span className="play"></span></a>
+
+            {
+              this.props.activeSlide && this.props.activeSlide._id ?
+                <Link to={`/player/${this.props.activeSlide._id}`}>
+                    <div className="play"></div>
+                </Link> :
+                <a href={this.props.activeSlide.href}>
+                  <div className="play"></div>
+                </a>
+            }
           </div>
         </div>
       </div>
