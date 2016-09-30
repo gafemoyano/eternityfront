@@ -8,8 +8,9 @@ class Search extends Component{
     super(props);
     this.state = {
       mobileMenuVisible: false,
-      searchActive: false,
+      searchActive: this.props.isActive,
       device: '',
+      searchValue: this.props.query
     }
   }
 
@@ -19,9 +20,9 @@ class Search extends Component{
 
   deactivateSearch = (e) => {
     if(e.target !== this.refs.label && e.target !== this.refs.close && e.target !== this.refs.input && this.refs.input.value === '') {
-      this.setState({
-        searchActive: false,
-      })
+      // this.setState({
+      //   searchActive: false,
+      // })
       browserHistory.push(`/browse`)
     }
   }
@@ -50,44 +51,59 @@ class Search extends Component{
     if(this.state.searchValue !== null && this.state.searchValue !== '') {
       browserHistory.push(`/search/${e.target.value}`)
     }else{
-      this.deactivateSearch()
+
       browserHistory.push(`/browse`)
     }
-    // this.props.setLocation({pathname: `/search/${e.target.value}`})
+    this.props.setSearch(e.target.value)
   }
-
+  handleChange = (e) => {
+    this.props.setSearch(e.target.value)
+  }
   render() {
     const labelStyle = {
       'display': !this.state.searchActive ? 'block' : 'none'
     };
 
     const closeSearchStyle = {
-      'display': this.state.searchActive && this.state.searchValue  ? 'block' : 'none'
+      'display': this.state.searchActive && this.props.query  ? 'block' : 'none'
     };
 
     var inputClass = `inactive ${this.state.searchActive ? 'active' : ''}`;
 
     return (
       <div className="search-input">
-        <a href="#" id="search-en" onClick={this.activateSearch} style={labelStyle} ref="label">Search</a>
-        <input type="text" id="inpsearch" className={inputClass} placeholder="Search..." onKeyUp={this.updateSearch} ref="input"/>
-        <span href="" style={closeSearchStyle} id="closesearch" onClick={this.clearSearch} ref="close">x</span>
+        <a
+          href="#"
+          id="search-en"
+          onClick={this.activateSearch}
+          style={labelStyle}
+          ref="label">Search
+        </a>
+        <input
+          type="text"
+          id="inpsearch"
+          className={inputClass}
+          placeholder="Search..."
+          onKeyUp={this.updateSearch}
+          onChange={this.handleChange}
+          ref="input"
+          value={this.props.query}
+        />
+        <span
+          href=""
+          style={closeSearchStyle}
+          id="closesearch"
+          onClick={this.clearSearch}
+          ref="close"x
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  search: state.search
+  query: state.search.query,
+  isActive: state.search.isActive,
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChange: () => {
-    dispatch(setSearch(ownProps.filter))
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
-
-
-
+export default connect(mapStateToProps, {setSearch})(Search)

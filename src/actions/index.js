@@ -25,7 +25,7 @@ export const setLocation = (location) => ({
 export const SET_SEARCH = 'SET_SEARCH'
 export const setSearch = (search) => ({
   type: SET_SEARCH,
-  location,
+  search,
 })
 
 export const fetchChannels = () => (dispatch, getState) => {

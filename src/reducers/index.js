@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import fromChannels from './channels'
+import fromSearch from './search'
 import { SET_LOCATION } from '../actions'
 import { routerReducer as routing } from 'react-router-redux'
 
@@ -19,6 +20,7 @@ const app = (state = {location: {pathname: '/'}}, action) =>{
 const rootReducer = combineReducers({
   app,
   channels: fromChannels,
+  search: fromSearch,
   routing,
 })
 
