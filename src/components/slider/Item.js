@@ -150,6 +150,7 @@ const Item = React.createClass({
                 description={this.props.item.description}
                 star={this.props.item.star}
                 thumb={this.props.item.thumb}
+                slug={this.props.item.slug}
               />
             }
           </span>

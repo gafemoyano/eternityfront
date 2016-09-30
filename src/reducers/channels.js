@@ -60,12 +60,10 @@ function byCategory(state = {}, action) {
   }
 }
 
-const visibleChannels = (state = [], action) => {
+const visibleChannelIds = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_CHANNELS:
       return action.channels.map(channel => channel._id)
-    case SEARCH_CHANNELS:
-      return action.channels.filter(channel => {return  channel.title.includes(action.search)})
     default:
       return state
   }
@@ -73,7 +71,7 @@ const visibleChannels = (state = [], action) => {
 
 export default combineReducers({
   byId,
-  visibleChannels,
+  visibleChannelIds,
   byCategory
 })
 
@@ -81,7 +79,7 @@ export const getChannel = (state, id) =>
   state.channels.byId[id]
 
 export const getVisibleChannels = (state, query) => {
-  const visibleIds = state.channels.visibleChannels.filter(id => {
+  const visibleIds = state.channels.visibleChannelIds.filter(id => {
     const channel = getChannel(state, id)
     if(channel.title.includes(query) || channel.description.includes(query))
       return true

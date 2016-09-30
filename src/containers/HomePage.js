@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import NavBar from '../components/NavBar'
 import Slider from '../components/Slider/'
 import { connect } from 'react-redux'
 import { readyChannels, topChannels } from '../data/staticChannels'
@@ -22,7 +21,6 @@ class HomePage extends Component {
 
     return (
       <div className="main">
-        <NavBar />
         <Slider items={topChannels} sliderTitle="Top Channels"/>
         <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
         { sliders}

@@ -22,9 +22,14 @@ export const setLocation = (location) => ({
   location,
 })
 
+export const SET_SEARCH = 'SET_SEARCH'
+export const setSearch = (search) => ({
+  type: SET_SEARCH,
+  location,
+})
 
 export const fetchChannels = () => (dispatch, getState) => {
-  if(getState().channels.visibleChannels <= 0) {
+  if(getState().channels.visibleChannelIds <= 0) {
     dispatch(requestChannels())
     return fetch(`http://www.eternityready.com:3000/api/channels/all`,
       {mode:"cors"})

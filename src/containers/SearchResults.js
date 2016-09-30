@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getVisibleChannels } from '../reducers/channels'
 import SearchRow from '../components/SearchRow'
-import Navbar from '../components/NavBar'
-
 
 class SearchResults extends Component {
 
@@ -35,7 +33,6 @@ class SearchResults extends Component {
 
     return (
       <div className="main">
-        <Navbar />
         {this.props.channels.length === 0 ?
            <div>No results where found for your search.</div> : <div>{sliders}</div>}
       </div>
@@ -44,8 +41,9 @@ class SearchResults extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
   return {
-    channels: getVisibleChannels(state, ownProps.params.query)
+    channels: getVisibleChannels(state, ownProps.params.query),
   }
 }
 

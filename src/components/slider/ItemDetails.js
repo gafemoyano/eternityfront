@@ -34,7 +34,7 @@ var ItemDetails = React.createClass({
       'transform': 'translateY(-' + test + 'px)'
     };
 
-    return (            
+    return (
       <div className='slider-item-details-container' ref="details" style={detailsStyle}>
         <div className={className} ref="detailsContent">
           <div className='slider-details-left'>
@@ -58,10 +58,10 @@ var ItemDetails = React.createClass({
             <div className="gradient"></div>
 
             {
-              this.props.activeSlide && this.props.activeSlide._id ?
-                <Link to={`/player/${this.props.activeSlide._id}`}>
+              this.props.activeSlide && this.props.activeSlide.slug ?
+                <a href={`http://www.eternityready.com/channel/${this.props.activeSlide.slug}`}>
                     <div className="play"></div>
-                </Link> :
+                </a> :
                 <a href={this.props.activeSlide.href}>
                   <div className="play"></div>
                 </a>

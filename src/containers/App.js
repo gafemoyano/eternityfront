@@ -1,10 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { fetchChannels } from '../actions'
-import HomePage from './HomePage'
-import Player from './Player'
-import SearchResults from './SearchResults'
-import { Match, Miss, Redirect } from 'react-router'
+import NavBar from '../components/NavBar'
 
 class App extends Component {
   state = {
@@ -17,10 +14,6 @@ class App extends Component {
     byCategory: {},
   }
 
-  setQueryString(query) {
-    this.setState({queryStringy: query})
-  }
-
   componentDidMount() {
     this.props.fetchChannels()
   }
@@ -28,6 +21,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
+          <NavBar />
           {this.props.children}
         </div>
     );

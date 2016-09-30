@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import  { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
-
+import { browserHistory, withRouter } from 'react-router'
+import { setSearch } from '../actions/'
 class Search extends Component{
 
   constructor(props) {
@@ -10,10 +10,8 @@ class Search extends Component{
       mobileMenuVisible: false,
       searchActive: false,
       device: '',
-      searchValue: props.query
     }
   }
-
 
   componentDidMount() {
     document.addEventListener('click', this.deactivateSearch);
@@ -24,6 +22,7 @@ class Search extends Component{
       this.setState({
         searchActive: false,
       })
+      browserHistory.push(`/browse`)
     }
   }
 
@@ -41,6 +40,7 @@ class Search extends Component{
       searchActive: false,
     })
     this.refs.input.value = ''
+    browserHistory.push(`/browse`)
   }
 
   updateSearch = (e) => {
@@ -50,6 +50,7 @@ class Search extends Component{
     if(this.state.searchValue !== null && this.state.searchValue !== '') {
       browserHistory.push(`/search/${e.target.value}`)
     }else{
+      this.deactivateSearch()
       browserHistory.push(`/browse`)
     }
     // this.props.setLocation({pathname: `/search/${e.target.value}`})
@@ -76,14 +77,17 @@ class Search extends Component{
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    location: state.app.locaction,
-    query: ownProps.params.query ? ownProps.params.query : null,
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  search: state.search
+})
 
-export default connect(mapStateToProps)(Search)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onChange: () => {
+    dispatch(setSearch(ownProps.filter))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search)
 
 
 

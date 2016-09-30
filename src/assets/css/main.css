@@ -43,7 +43,9 @@
   }
 }
 
-
+.main {
+  padding-top: 80px;
+}
 .SearchResults {
   padding-top: 85px;
 }
@@ -364,7 +366,7 @@
   color: white;
   border-radius: 50%;
   cursor: pointer;
-  background: rgba(244, 0, 0, 0.5);
+  background: rgba(0,0,0,.5);
   display: none;
   z-index: 10;
 }

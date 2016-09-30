@@ -9,11 +9,11 @@ import {
   FormGroup,
   FormControl,
 } from 'react-bootstrap'
-import logo from '../img/logo.png'
+import logo from '../assets/img/logo.png'
 
 const NavBar = () => (
 
-  <Navbar fluid style={ {
+  <Navbar fluid fixedTop style={ {
     fontSize: '16px',
     fontWeight: 'bold',
 }} >
