@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+
 /* —- Tools -— */
 /* components */
 
@@ -738,6 +740,7 @@ iframe {
   float: right;
   padding-right: 40px;
   position: relative;
+  padding-top: 20px;
 }
 
 .search-input input {
@@ -768,5 +771,88 @@ iframe {
   color: #DDD;
   text-decoration: none;
   top: 0px;
+  padding-top: 20px;
   cursor: pointer;
+}
+
+/*Buttons*/
+/* ==========================================================================
+Buttons Styles
+========================================================================== */
+.btn-transparent {
+  background: transparent;
+  border: 3px solid #fff;
+  padding: 15px 30px;
+  font-size: 14px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: #fff;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-transparent:hover,
+.btn-transparent:focus,
+.btn-transparent:active {
+  background: #fff;
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+.btn-light {
+  background: #E50914;
+  border: 3px solid #FF0A16;
+  padding: 15px 30px;
+  font-size: 16px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: white;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+  background: #FF0A16;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-block {
+  background: #24242a;
+  padding: 15px 0;
+  font-size: 16px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: #fff;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 3px solid #24242a;
+}
+
+.btn-block:hover,
+.btn-block:focus,
+.btn-block:active {
+  background: #fff;
+  color: #0d0d0d;
+  text-decoration: none;
 }

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getVisibleChannels } from '../reducers/channels'
-import { setSearch } from '../actions/'
+import { setQuery } from '../actions/'
 import SearchRow from '../components/SearchRow'
 
 class SearchResults extends Component {
@@ -14,9 +14,9 @@ class SearchResults extends Component {
   }
   constructor(props) {
     super(props);
-    const { search, query, setSearch } = this.props
+    const { search, query, setQuery } = this.props
     if(search !== query){
-      setSearch(query)
+      setQuery(query)
     }
   }
 
@@ -57,4 +57,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, {setSearch})(SearchResults)
+export default connect(mapStateToProps, {setQuery})(SearchResults)

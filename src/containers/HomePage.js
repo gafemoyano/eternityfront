@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Slider from '../components/Slider/'
 import { connect } from 'react-redux'
 import { readyChannels, topChannels } from '../data/staticChannels'
-
+import Billboard from '../components/Billboard'
 class HomePage extends Component {
 
   static propTypes = {
@@ -20,7 +20,8 @@ class HomePage extends Component {
     })
 
     return (
-      <div className="main">
+      <div>
+        <Billboard />
         <Slider items={topChannels} sliderTitle="Top Channels"/>
         <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
         { sliders}

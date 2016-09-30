@@ -22,10 +22,23 @@ export const setLocation = (location) => ({
   location,
 })
 
-export const SET_SEARCH = 'SET_SEARCH'
-export const setSearch = (search) => ({
-  type: SET_SEARCH,
+export const SET_QUERY = 'SET_QUERY'
+export const setQuery = (search) => ({
+  type: SET_QUERY,
   search,
+})
+
+
+export const ACTIVATE_SEARCH = 'ACTIVATE_SEARCH'
+export const activateSearch = (search) => ({
+  type: ACTIVATE_SEARCH,
+})
+
+
+
+export const DEACTIVATE_SEARCH = 'DEACTIVATE_SEARCH'
+export const deactivateSearch = (search) => ({
+  type: DEACTIVATE_SEARCH,
 })
 
 export const fetchChannels = () => (dispatch, getState) => {
