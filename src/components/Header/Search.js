@@ -4,19 +4,6 @@ import { browserHistory } from 'react-router'
 import { setQuery, activateSearch, deactivateSearch } from '../../actions/'
 
 class Search extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      mobileMenuVisible: false,
-      searchActive: this.props.isActive,
-      device: '',
-      searchValue: this.props.query
-    }
-  }
-
-  componentDidMount() {
-    document.addEventListener('click', this.deactivateSearch);
-  }
 
   deactivateSearch = (e) => {
     if(e.target !== this.refs.label && e.target !== this.refs.close && e.target !== this.refs.input && this.refs.input.value === '') {
@@ -31,10 +18,6 @@ class Search extends Component{
   }
 
   clearSearch = () => {
-    this.setState({
-      searchValue: null,
-      searchActive: false,
-    })
     this.props.setQuery('')
     this.props.deactivateSearch()
     this.refs.input.value = ''

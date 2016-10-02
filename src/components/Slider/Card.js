@@ -36,15 +36,15 @@ const styles={
   },
 }
 const Card = (props) =>{
-  const {title, age, year, description, star, slug, href} = props
+  const {title, age, year, description, rating, slug, href, id} = props
   styles.container.backgroundImage = `url(${props.thumb})`
   return (
     <div style={styles.container}>
       <div style={styles.overlay}>
       {
-        slug ? <a href={`http://www.eternityready.com/channel/${slug}`}>
+        slug ? <Link to={`watch/${id}`}>
                   <div className="play"></div>
-              </a> :
+              </Link> :
             <a href={href}>
               <div className="play"></div>
             </a>
@@ -52,7 +52,7 @@ const Card = (props) =>{
         </div>
         <div className="infoteaser">
           <span className="title">{title}</span>
-          <span className="stars">{ Array(star || 0).join('★') }</span>
+          <span className="stars">{ Array(rating || 0).join('★') }</span>
           {
             age ? <span className="age">{age}</span> : ''
           }
@@ -72,7 +72,7 @@ Card.PropTypes = {
   age: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-  star: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   thumb: PropTypes.string.isRequired,
 }
 

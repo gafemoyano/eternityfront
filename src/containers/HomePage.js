@@ -22,9 +22,10 @@ class HomePage extends Component {
     return (
       <div>
         <Billboard />
-        <Slider items={topChannels} sliderTitle="Top Channels"/>
-        <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
-        { sliders}
+        {/*<Slider items={topChannels} sliderTitle="Top Channels"/>
+                        <Slider items={readyChannels} sliderTitle="Eternity Ready Channels"/>
+         */}
+         { sliders}
       </div>
     )
   }

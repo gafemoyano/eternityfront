@@ -13,7 +13,7 @@ class HeaderDesktop extends Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
    window.removeEventListener('scroll', this.handleScroll);
   }
 

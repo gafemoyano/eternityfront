@@ -9,7 +9,7 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage}/>
     <Route path="/browse" component={HomePage}/>
-    <Route path="/player/:id" component={Player}/>
+    <Route path="/watch/:id" component={Player}/>
     <Route path="/search/:query" component={SearchResults}/>
   </Route>
 )
