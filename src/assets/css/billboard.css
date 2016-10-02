@@ -8,6 +8,7 @@
   background-size: cover;
   -o-background-size: cover;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 60px, rgba(0, 0, 0, 0.117647) 0px 1px 40px;
 }
 .billboard .intro-text {
   padding-top: 100px;

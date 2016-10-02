@@ -44,7 +44,7 @@ export const deactivateSearch = (search) => ({
 export const fetchChannels = () => (dispatch, getState) => {
   if(getState().channels.visibleChannelIds <= 0) {
     dispatch(requestChannels())
-    return fetch(`http://www.eternityready.com:3000/api/channels/all`,
+    return fetch(`http://www.eternityready.com/api/channels/all`,
       {mode:"cors"})
       .then(response => response.json())
       .then(json => dispatch(receiveChannels(json)))

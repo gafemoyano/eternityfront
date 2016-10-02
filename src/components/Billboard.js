@@ -12,7 +12,7 @@ const Billboard = () => (
           </div>
       </div>
   </div>
-  <div className="hero-vignette"></div>
+  {/*<div className="hero-vignette"></div>*/}
 </div>
 )
 
