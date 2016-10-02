@@ -52,7 +52,7 @@ const Card = (props) =>{
         </div>
         <div className="infoteaser">
           <span className="title">{title}</span>
-          <span className="stars">{ Array(rating || 0).join('★') }</span>
+          <span className="stars">{'★'.repeat(rating)}</span>
           {
             age ? <span className="age">{age}</span> : ''
           }

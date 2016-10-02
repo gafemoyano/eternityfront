@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getChannel } from '../reducers/channels'
 import { Link } from 'react-router'
+import back from '../assets/img/back.gif'
 
 class Player extends Component {
   state = {
@@ -21,7 +22,7 @@ class Player extends Component {
       <div className="main">
         <div className="row">
           <div style={{margin: '0 50px'}}>
-            <Link to="/browse"><img src="http://www.eternityready.com:3000/img/back.gif" alt="Back Button" /></Link>
+            <Link to="/browse"><img src={back} alt="Back Button" /></Link>
           </div>
         </div>
         <div className="row">

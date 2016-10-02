@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router'
 var ItemDetails = React.createClass({
 
   componentDidMount() {
@@ -58,10 +58,10 @@ var ItemDetails = React.createClass({
             <div className="gradient"></div>
 
             {
-              this.props.activeSlide && this.props.activeSlide.slug ?
-                <a href={`http://www.eternityready.com/channel/${this.props.activeSlide.slug}`}>
-                    <div className="play"></div>
-                </a> :
+              this.props.activeSlide && this.props.activeSlide._id ?
+                <Link to={`watch/${this.props.activeSlide._id}`}>
+                  <div className="play"></div>
+                </Link> :
                 <a href={this.props.activeSlide.href}>
                   <div className="play"></div>
                 </a>

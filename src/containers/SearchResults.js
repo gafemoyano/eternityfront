@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getVisibleChannels } from '../reducers/channels'
 import { setQuery } from '../actions/'
-import SearchRow from '../components/SearchRow'
+import { Link } from 'react-router'
 import '../assets/css/search.css'
 
 class SearchResults extends Component {
@@ -30,11 +30,13 @@ class SearchResults extends Component {
   render() {
     const sliders = this.props.channels.map((channel, index) => {
         return (
-          <div className="search-item">
-            <div className="search-background" style={{backgroundImage: `url(${channel.thumb})`}}>
+          <Link to={`watch/${this.props.activeSlide._id}`}>
+            <div className="search-item">
+              <div className="search-background" style={{backgroundImage: `url(${channel.thumb})`}}>
+              </div>
+              <div className="search-caption">{channel.title}</div>
             </div>
-            <div className="search-caption">{channel.title}</div>
-          </div>
+          </Link>
         )
     })
 
