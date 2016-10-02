@@ -39,7 +39,7 @@ var ItemDetails = React.createClass({
         <div className={className} ref="detailsContent">
           <div className='slider-details-left'>
             <h2>{this.props.activeSlide ? this.props.activeSlide.title : ''}</h2>
-            <span className="stars">{this.props.activeSlide ? Array(this.props.activeSlide.rating || 0).join('★')  : ''}</span>
+            <span className="stars">{ this.props.activeSlide && '★'.repeat(this.props.activeSlide.rating)}</span>
             {
               this.props.activeSlide ?
                 this.props.activeSlide.age ?

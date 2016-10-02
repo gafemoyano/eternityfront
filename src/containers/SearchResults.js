@@ -30,7 +30,7 @@ class SearchResults extends Component {
   render() {
     const sliders = this.props.channels.map((channel, index) => {
         return (
-          <Link to={`watch/${this.props.activeSlide._id}`}>
+          <Link to={`watch/${channel._id}`}>
             <div className="search-item">
               <div className="search-background" style={{backgroundImage: `url(${channel.thumb})`}}>
               </div>
