@@ -6,10 +6,12 @@ import Player from './containers/Player'
 import SearchResults from './containers/SearchResults'
 
 export default (
+<div>
   <Route path="/" component={App}>
     <IndexRoute component={HomePage}/>
     <Route path="/browse" component={HomePage}/>
-    <Route path="/watch/:id" component={Player}/>
     <Route path="/search/:query" component={SearchResults}/>
   </Route>
+  <Route path="/watch/:id" component={Player}/>
+</div>
 )

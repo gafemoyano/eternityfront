@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getChannel } from '../reducers/channels'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import back from '../assets/img/back.gif'
 
 class Player extends Component {
@@ -17,12 +17,16 @@ class Player extends Component {
 
   createMarkup() { return {__html: this.props.channel.embedCode} }
 
+  handleGoBack = ()=> {
+    browserHistory.goBack()
+  }
+
   render() {
     return (
-      <div className="main">
+      <div>
         <div className="row">
-          <div style={{margin: '0 50px'}}>
-            <Link to="/browse"><img src={back} alt="Back Button" /></Link>
+          <div style={{margin: '0 50px', cursor: 'pointer'}}>
+            <div onClick={this.handleGoBack}><img src={back} alt="Back Button" /></div>
           </div>
         </div>
         <div className="row">
@@ -34,6 +38,7 @@ class Player extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
   return {
     channel: getChannel(state, ownProps.params.id)
   }

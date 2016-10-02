@@ -59,7 +59,7 @@ var ItemDetails = React.createClass({
 
             {
               this.props.activeSlide && this.props.activeSlide._id ?
-                <Link to={`watch/${this.props.activeSlide._id}`}>
+                <Link to={`/watch/${this.props.activeSlide._id}`}>
                   <div className="play"></div>
                 </Link> :
                 <a href={this.props.activeSlide.href}>

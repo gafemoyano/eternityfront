@@ -142,6 +142,7 @@
   font-size: 20px;
   font-weight: bold;
   padding-left: 53px;
+  padding-top: 20px;
   position: absolute;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -175,7 +176,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin: 0 5px
+  margin: 0 2px
 }
 
 .item-wrapper {

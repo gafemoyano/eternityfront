@@ -12,7 +12,7 @@ var Slider = React.createClass({
       activeSlide: null,
       goingNext: false,
       goingPrev: false,
-      sliderHeight: 250,
+      sliderHeight: 180,
       indexModifier: 0,
       preparePrev: false,
       mouseDown: false,
@@ -93,7 +93,7 @@ var Slider = React.createClass({
 
   setSliderHeight(newHeight) {
     this.setState({
-      sliderHeight: newHeight * 1.1
+      sliderHeight: newHeight * 1.0
     });
   },
 
