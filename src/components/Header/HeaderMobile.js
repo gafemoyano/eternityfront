@@ -34,7 +34,7 @@ class HeaderMobile extends Component {
 
     return (
         <div className="header" id="header-mobile">
-          <div className="mobileHeaderTop">
+          <div className="mobileHeaderTop" >
             <div id="menu-icon" onClick={this.toggleMobileMenu} className={mobileMenuIconClass}>
               <span></span>
               <span></span>

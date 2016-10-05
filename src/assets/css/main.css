@@ -778,6 +778,10 @@ iframe {
   animation-fill-mode: forwards;
 }
 
+.search-input input.inactive {
+  display: none;
+}
+
 #closesearch {
   font-size: 27px;
   position: absolute;

@@ -4,7 +4,14 @@ import { browserHistory } from 'react-router'
 import { setQuery, activateSearch, deactivateSearch } from '../../actions/'
 
 class Search extends Component{
-
+  static defaultProps = {
+    query: '',
+    isActive: false,
+  }
+  static PropTypes = {
+    query: PropTypes.string.isRequired,
+    isActive: PropTypes.bool.isRequired,
+  }
   deactivateSearch = (e) => {
     if(e.target !== this.refs.label && e.target !== this.refs.close && e.target !== this.refs.input && this.refs.input.value === '') {
       this.props.deactivateSearch()
@@ -40,10 +47,10 @@ class Search extends Component{
     };
 
     const closeSearchStyle = {
-      'display': this.props.isActive && this.props.query  ? 'block' : 'none'
+      'display': this.props.isActive ? 'block' : 'none'
     };
 
-    var inputClass = `inactive ${this.props.isActive ? 'active' : ''}`;
+    var inputClass = this.props.isActive ? 'active' : 'inactive'
 
     return (
       <div className="search-input">
@@ -74,6 +81,5 @@ export default connect(mapStateToProps, {
   activateSearch,
   deactivateSearch}
 )(Search)
-
 
 

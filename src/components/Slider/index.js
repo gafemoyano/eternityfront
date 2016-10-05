@@ -1,6 +1,7 @@
 import React from 'react'
 import Item from './Item'
 import ItemDetails from './ItemDetails'
+var Rx = require('rx')
 
 const nextPrevSpeed = 0.8
 
@@ -85,6 +86,56 @@ var Slider = React.createClass({
   },
 
   reInit() {
+    var self = this;
+
+    var track = this.refs.track;
+
+    var mouseDown = Rx.Observable.fromEvent(track, 'touchstart');
+    var mouseMove = Rx.Observable.fromEvent(track, 'touchmove');
+    var mouseUp = Rx.Observable.fromEvent(track, 'touchend');
+
+    var mouseDrag = mouseDown.selectMany( function (downEvent) {
+      var start = downEvent.touches[0].clientX;
+      return mouseMove.takeUntil(mouseUp).select(function(moveEvent) {
+        moveEvent.preventDefault();
+        if(moveEvent.touches[0].clientX - start > 70) {
+          start = moveEvent.touches[0].clientX;
+        }
+
+        return {
+          delta: moveEvent.touches[0].clientX - start
+        };
+      });
+    });
+
+    mouseDrag.subscribe( function (position) {
+      var delta = position.delta;
+
+      if(!self.state.goingNext && !self.state.goingPrev && !self.state.preparePrev) {
+        if(delta > 30) {
+          if(!self.state.goingPrev) {
+            self.setState({
+              mouseDown: false
+            }, function() {
+              self.goToPrev();
+            });
+          }
+        }
+
+        if(delta < -30) {
+          if(!self.state.goingNext) {
+            self.setState({
+              mouseDown: false
+            }, function() {
+              self.goToNext();
+            });
+          }
+        }
+
+      }
+    });
+
+
     this.setState({
       isTouch: this.isTouchDevice(),
       sliderWidth: document.body.getBoundingClientRect().width
@@ -93,7 +144,7 @@ var Slider = React.createClass({
 
   setSliderHeight(newHeight) {
     this.setState({
-      sliderHeight: newHeight * 1.0
+      sliderHeight: newHeight * 1.1
     });
   },
 
