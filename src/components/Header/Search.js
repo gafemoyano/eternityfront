@@ -13,7 +13,7 @@ class Search extends Component{
     isActive: PropTypes.bool.isRequired,
   }
   deactivateSearch = (e) => {
-    if(e.target !== this.refs.label && e.target !== this.refs.close && e.target !== this.refs.input && this.refs.input.value === '') {
+    if(e.target !== this.refs.label && e.target !== this.refs.close && e.target !== this.refs.input && this._input.value === '') {
       this.props.deactivateSearch()
       browserHistory.push(`/browse`)
     }
@@ -21,13 +21,13 @@ class Search extends Component{
 
   activateSearch = () => {
     this.props.activateSearch()
-    this.refs.input.focus()
+    this._input.focus()
   }
 
   clearSearch = () => {
     this.props.setQuery('')
     this.props.deactivateSearch()
-    this.refs.input.value = ''
+    this._input.value = ''
     browserHistory.push(`/browse`)
   }
 
@@ -63,7 +63,7 @@ class Search extends Component{
           onKeyUp={this.updateSearch}
           onChange={this.handleChange}
           value={this.props.query}
-          ref="input"
+          ref={(c) => this._input = c}
         />
         <span href="" style={closeSearchStyle} id="closesearch" onClick={this.clearSearch} ref="close">x</span>
       </div>

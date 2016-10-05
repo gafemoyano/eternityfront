@@ -252,6 +252,20 @@ var Slider = React.createClass({
     });
   },
 
+  showPrev() {
+    if(this.state.indexModifier && this.state.sliderHovered && !this.state.isTouch){
+      return true
+    }
+    return false
+  },
+
+  showNext() {
+    if(this.state.sliderHovered && !this.state.isTouch){
+      return true
+    }
+    return false
+  },
+
   render: function() {
     if(!this.state.items) {
       return false;
@@ -321,10 +335,10 @@ var Slider = React.createClass({
             </div>
 
             {
-              this.state.sliderHovered ? <div className='next' onClick={this.goToNext}></div> : ''
+              this.showNext() ? <div className='next' onClick={this.goToNext}></div> : ''
             }
             {
-              this.state.indexModifier && this.state.sliderHovered ? <div className='prev' onClick={this.goToPrev}></div> : ''
+              this.showPrev() ? <div className='prev' onClick={this.goToPrev}></div> : ''
             }
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+import { browserHistory } from 'react-router'
 const slideHoverScale = 190
 const delayItemHover = 0
 
@@ -52,11 +53,14 @@ const Item = React.createClass({
   },
 
 
-  openUrl() {
+  openUrl(id, event) {
+    console.log(id)
+    console.log(event)
+    event.preventDefault()
     if(!this.props.isTouch) {
       return;
     };
-    this.refs.play.click();
+    browserHistory.push(`/watch/${id}`)
   },
 
   componentWillReceiveProps(nextProps) {
@@ -132,7 +136,7 @@ const Item = React.createClass({
            style={itemStyle}
            onMouseEnter={self.itemHovered}
            onMouseLeave={self.itemMouseOut}
-           onClick={self.openUrl}
+           onClick={this.openUrl.bind(self, this.props.item._id)}
       >
         <div className='item-wrapper' style={itemWrapperStyle}>
 

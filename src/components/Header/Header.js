@@ -11,7 +11,6 @@ class Header extends Component {
     window.addEventListener('resize', this.handleResize)
   }
   handleResize = () => {
-    console.log(window.innerWidth)
     const visibility = window.innerWidth <= 800? true: false
     this.setState({mobileMenuVisible: visibility})
   }

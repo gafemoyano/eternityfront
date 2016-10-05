@@ -4,6 +4,7 @@ import { getVisibleChannels } from '../reducers/channels'
 import { setQuery } from '../actions/'
 import { Link } from 'react-router'
 import '../assets/css/search.css'
+import back from '../assets/img/back.gif'
 
 class SearchResults extends Component {
 
@@ -42,6 +43,11 @@ class SearchResults extends Component {
 
     return (
       <div className="main">
+        <div className="row">
+          <div style={{margin: '0 50px', cursor: 'pointer'}}>
+            <Link to="/browse"><img src={back} alt="Back Button" /></Link>
+          </div>
+        </div>
         <div className="search-container">
          {sliders}
        </div>

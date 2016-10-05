@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getChannel } from '../reducers/channels'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import back from '../assets/img/back.gif'
 
 class Player extends Component {

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { REQUEST_CHANNELS, RECEIVE_CHANNELS, SEARCH_CHANNELS } from '../actions'
+import { REQUEST_CHANNELS, RECEIVE_CHANNELS } from '../actions'
 import striptags  from 'striptags'
 
 function channel(state = {}, action) {
