@@ -748,7 +748,7 @@ iframe {
   position: relative;
   padding-top: 20px;
 }
-@media (max-width: 499px) {
+@media (max-width: 799px) {
   .search-input {
     width: 160px;
     float: right;
