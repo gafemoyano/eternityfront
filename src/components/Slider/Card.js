@@ -42,7 +42,7 @@ const Card = (props) =>{
     <div style={styles.container}>
       <div style={styles.overlay}>
       {
-        slug ? <Link to={`watch/${id}`}>
+        slug ? <Link to={`/watch/${id}`}>
                   <div className="play"></div>
               </Link> :
             <a href={href}>

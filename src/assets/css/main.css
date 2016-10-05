@@ -142,7 +142,7 @@
   font-size: 20px;
   font-weight: bold;
   padding-left: 53px;
-  padding-top: 20px;
+  padding-top: 10px;
   position: absolute;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -737,12 +737,25 @@ iframe {
   position: absolute;
   text-decoration: none;
 }
-
+@media (max-width: 799px) {
+  #search-en, #search-en-mobile {
+  padding-top: 8px;
+  }
+}
 .search-input {
   float: right;
   padding-right: 40px;
   position: relative;
   padding-top: 20px;
+}
+@media (max-width: 499px) {
+  .search-input {
+    width: 160px;
+    float: right;
+    padding-right: 5px;
+    position: relative;
+    padding-top: 5px;
+  }
 }
 
 .search-input input {
@@ -775,6 +788,13 @@ iframe {
   top: 0px;
   padding-top: 20px;
   cursor: pointer;
+}
+@media (max-width: 799px) {
+  #closesearch {
+    padding-right: 5px;
+    padding-top: 5px;
+    right: 10px;
+  }
 }
 
 /*Buttons*/

@@ -5,15 +5,17 @@ import '../../assets/css/header.css'
 
 class Header extends Component {
   state = {
-    mobileMenuVisible: false,
+    mobileMenuVisible: window.innerWidth <= 800? true: false,
   }
   componentDidMount(){
     window.addEventListener('resize', this.handleResize)
   }
   handleResize = () => {
-    const visibility = this._header.getBoundingClientRect().width < 799 ? true: false
+    console.log(window.innerWidth)
+    const visibility = window.innerWidth <= 800? true: false
     this.setState({mobileMenuVisible: visibility})
   }
+
 
   render() {
     return (
